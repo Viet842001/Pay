@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Pay1194</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Pay1194.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+</head>
+<body>
+    <div class="container-scroller">
+        <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+            <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+                <a class="navbar-brand brand-logo"><img src="~/images/Emp.gif" alt="logo" /></a>
+            </div>
+           
+        </nav>
+        <div class="container-fluid page-body-wrapper">
+            <nav class="sidebar sidebar-offcanvas" id="sidebar">
+               
+                <ul class="nav list-unstyled ps-0">
+                    <li class="mb-1">
+                        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#employee" aria-expanded="false">
+                            <i class="fas fa-users fa-lg text-primary" style="margin-right:0.7em"></i>
+                            <span class="menu-title">Employee</span>
+                            <i class="menu-arrow text-primary"></i>
+                        </button>
+                        <div class="collapse" id="employee">
+                            <ul class="nav btn-toggle-nav list-unstyled flex-column sub-menu">
+                                <li class="nav-item"><a class="nav-link" asp-controller="Employee" asp-action="Create"> New Employee</a></li>
+                                <li class="nav-item"><a class="nav-link" asp-controller="Employee" asp-action="Index"> All Employees</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="mb-1">
+                        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#Payroll" aria-expanded="false">
+                            <i class="fas fa-pound-sign fa-lg text-primary" style="margin-right:0.7em"></i>
+                            <span class="menu-title">Payroll</span>
+                            <i class="menu-arrow text-primary"></i>
+                        </button>
+                        <div class="collapse" id="Payroll" style="">
+                            <ul class="nav btn-toggle-nav flex-column sub-menu list-unstyled">                              
+                                <li class="nav-item"><a class="nav-link" asp-controller="Payment" asp-action="Index"> Payment Records</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                </ul>
+            </nav>
+            <div class="main-panel">
+                <div class="content-wrapper">
+                    @RenderBody()
+                </div>
+                <footer class="footer">
+                    <p> &copy; @DateTime.UtcNow.Year - Pay1194 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></p>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
